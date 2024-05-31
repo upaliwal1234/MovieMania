@@ -85,7 +85,6 @@ router.get('/bookings/:userId', async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
-        console.log(user.bookedTickets);
         return res.status(200).json(user.bookedTickets);
     } catch (error) {
         return res.status(500).json({ message: "internal server error" });

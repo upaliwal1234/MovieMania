@@ -31,9 +31,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.listen(PORT, (err) => {
     console.log(`server is running at http://localhost:${PORT}`);
 })
-app.get('/', (req, res) => {
-    res.send('you are at root route')
-})
 
 
 app.use(bodyParser.json());
@@ -47,3 +44,22 @@ app.use(ownerroutes);
 app.use(ownerShowRoutes);
 app.use(ownerMovieRoutes);
 app.use(paymentroutes);
+
+
+// -------------Deployment----------------
+const __dirname1 = path.resolve();
+if (process.env.NODE_ENV === 'production') {
+
+    app.use(express.static(path.join(__dirname1, './dist')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname1, "dist", "index.html"));
+    })
+}
+else {
+    app.get('/', (req, res) => {
+        res.send('you are at root route')
+    })
+}
+
+// -------------Deployment----------------
+

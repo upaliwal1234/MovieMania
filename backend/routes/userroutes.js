@@ -78,11 +78,11 @@ router.get('/profile/:id', async (req, res) => {
     try {
         const { id } = req.params;
         const response = await User.findById(id);
-        console.log(response);
+        // console.log(response);
         if (!response) {
             return res.status(404).json({ message: "User not found" });
         }
-        return res.json(response);
+        return res.status(200).json(response);
     }
     catch {
         return res.status(500).json({ message: "Internal Server Error" });
@@ -96,11 +96,11 @@ router.patch('/editProfile/:id', async (req, res) => {
     res.status(200).json(updatedUser);
 });
 
-router.get('/profile/:id', async (req, res) => {
-    const userId = req.params.id;
-    const user = await User.findById(userId);
-    res.status(200).json(user);
-}); 
+// router.get('/profile/:id', async (req, res) => {
+//     const userId = req.params.id;
+//     const user = await User.findById(userId);
+//     res.status(200).json(user);
+// });
 
 
 module.exports = router;
