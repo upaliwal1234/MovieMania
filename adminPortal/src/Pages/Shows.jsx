@@ -10,10 +10,10 @@ export default function Shows() {
   const navigate = useNavigate();
   const [shows, setShows] = useState([]);
 
-  const fetchShows = async (req, res) => {
+  const fetchShows = async () => {
     try {
       if (!user) {
-        return res.status(404).json({ message: "Shows Not Found" });
+        return;
       }
       const { data } = await axios.get(`${baseURL}/admin/allShows/${user.id}`);
       setShows(data);
@@ -48,7 +48,7 @@ export default function Shows() {
       </form>
       <div className="mt-16 mx-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          {shows.map((data, index) => (
+          {shows && shows.map((data, index) => (
             <div key={index} className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{data.movieName}</h5>
               <p className="mb-1 text-sm font-medium text-gray-700 dark:text-gray-400">Start Time: {data.timing}</p>

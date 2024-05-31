@@ -1,3 +1,3 @@
 // const baseURL = "http://localhost:8888"
-const baseURL = ""
+const baseURL = "/app"
 export default baseURL;

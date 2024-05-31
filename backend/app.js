@@ -35,15 +35,15 @@ app.listen(PORT, (err) => {
 
 app.use(bodyParser.json());
 app.use(cors());
-app.use(userroutes);
-app.use(cinemaroutes);
-app.use(movieroutes);
-app.use(showroutes);
-app.use(searchroutes);
+app.use('/app', userroutes);
+app.use('/app', cinemaroutes);
+app.use('/app', movieroutes);
+app.use('/app', showroutes);
+app.use('/app', searchroutes);
 app.use(ownerroutes);
 app.use(ownerShowRoutes);
 app.use(ownerMovieRoutes);
-app.use(paymentroutes);
+app.use('/app', paymentroutes);
 
 
 // -------------Deployment----------------
