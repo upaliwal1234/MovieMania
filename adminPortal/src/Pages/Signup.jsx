@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import baseURL from '../DB';
 
 function Signup() {
     const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Signup() {
 
     const submitData = async () => {
         try {
-            const response = await axios.post('http://localhost:8888/admin/signup', {
+            const response = await axios.post(`${baseURL}/admin/signup`, {
                 cinemaName: name,
                 email,
                 address,

@@ -1,9 +1,9 @@
-import React from 'react'
 import { useState } from 'react'
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import baseUrl from '../../DB'
 
 function Signup() {
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Signup() {
     const [confirmPassword, setConfirmPassword] = useState('')
     const submitData = async () => {
         try {
-            const response = await axios.post('http://localhost:8888/signup', {
+            const response = await axios.post(`${baseUrl}/signup`, {
                 name,
                 email,
                 password,

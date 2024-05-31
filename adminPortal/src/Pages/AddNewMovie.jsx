@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { CinemaState } from "../Context/CinemaProvider";
+import baseURL from "../DB";
 
 
 function AddNewMovie() {
@@ -100,7 +101,7 @@ function AddNewMovie() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8888/admin/addMovie', {
+      const response = await axios.post(`${baseURL}/admin/addMovie`, {
         userId: user.id,
         name,
         ratings,

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import baseURL from '../../DB';
 
 function Login() {
     const navigate = useNavigate();
@@ -24,7 +25,7 @@ function Login() {
     };
     const submitData = async () => {
         try {
-            const response = await axios.post('http://localhost:8888/login',
+            const response = await axios.post(`${baseURL}/login`,
                 {
                     email,
                     password
@@ -118,7 +119,7 @@ function Login() {
                             Login
                         </button>
                         <p className="block mt-4 font-sans text-base antialiased font-normal leading-relaxed text-center text-gray-700">
-                            Don't have an account?
+                            Don&apos;t have an account?
                             <a href="/signup" className="font-medium text-gray-900">
                                 Signup
                             </a>
