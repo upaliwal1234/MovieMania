@@ -36,7 +36,7 @@ export default function Shows() {
   }
   useEffect(() => {
     fetchShows();
-  }, [user, shows]);
+  }, [user]);
 
   return (
     <div className='mb-10 w-[80%] mx-auto'>
