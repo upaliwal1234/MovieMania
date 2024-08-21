@@ -163,7 +163,40 @@ function AddNewMovie() {
         </div>
         <div className="mb-4">
           <label className="block mb-1">Language:</label>
-          <div>
+          <div className=" flex flex-row gap-5">
+            <label>
+              <input
+                type="checkbox"
+                name="language"
+                value="Hindi"
+                checked={language.includes("Hindi")}
+                onChange={handleLanguageChange}
+                className="mr-1"
+              />
+              Hindi
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="language"
+                value="Tamil"
+                checked={language.includes("Tamil")}
+                onChange={handleLanguageChange}
+                className="mr-1"
+              />
+              Tamil
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="language"
+                value="Telugu"
+                checked={language.includes("Telugu")}
+                onChange={handleLanguageChange}
+                className="mr-1"
+              />
+              Telugu
+            </label>
             <label>
               <input
                 type="checkbox"
@@ -171,6 +204,7 @@ function AddNewMovie() {
                 value="English"
                 checked={language.includes("English")}
                 onChange={handleLanguageChange}
+                className="mr-1"
               />
               English
             </label>
@@ -181,6 +215,7 @@ function AddNewMovie() {
                 value="Spanish"
                 checked={language.includes("Spanish")}
                 onChange={handleLanguageChange}
+                className="mr-1"
               />
               Spanish
             </label>
@@ -259,24 +294,27 @@ function AddNewMovie() {
         <div className="mb-4">
           <label className="block mb-1">Cast:</label>
           {cast.map((actor, index) => (
-            <div key={index}>
+            <div key={index} className="mb-2">
               <input
                 type="text"
                 placeholder="Name"
                 value={actor.name}
                 onChange={(e) => handleCastChange(index, 'name', e.target.value)}
+                className="p-1 border-r"
               />
               <input
                 type="text"
                 placeholder="Role"
                 value={actor.role}
                 onChange={(e) => handleCastChange(index, 'role', e.target.value)}
+                className="p-1 border-r"
               />
               <input
                 type="text"
                 placeholder="Image URL"
                 value={actor.img}
                 onChange={(e) => handleCastChange(index, 'img', e.target.value)}
+                className="p-1"
               />
             </div>
           ))}
@@ -285,24 +323,27 @@ function AddNewMovie() {
         <div className="mb-4">
           <label className="block mb-1">Crew:</label>
           {crew.map((crewMember, index) => (
-            <div key={index}>
+            <div key={index} className="mb-2">
               <input
                 type="text"
                 placeholder="Name"
                 value={crewMember.name}
                 onChange={(e) => handleCrewChange(index, 'name', e.target.value)}
+                className="p-1 border-r"
               />
               <input
                 type="text"
                 placeholder="Role"
                 value={crewMember.role}
                 onChange={(e) => handleCrewChange(index, 'role', e.target.value)}
+                className="p-1 border-r"
               />
               <input
                 type="text"
                 placeholder="Image URL"
                 value={crewMember.img}
                 onChange={(e) => handleCrewChange(index, 'img', e.target.value)}
+                className="p-1"
               />
             </div>
           ))}
