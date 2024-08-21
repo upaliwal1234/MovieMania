@@ -8,7 +8,7 @@ router.post('/admin/movie/addshow', async (req, res) => {
     try {
         let { timing, date, movieName, price, seating, cinema } = req.body;
         date = date.split('-').reverse().join('-');
-        const existingShow = await Show.findOne({ movieName, timing, date });
+        const existingShow = await Show.findOne({ movieName, timing, date, cinema });
         if (existingShow) {
             return res.status(401).send("Show Already Exists");
         }
@@ -61,8 +61,8 @@ router.patch('/admin/movie/editShow', async (req, res) => {
             price: price,
             seating: seating
         }, { new: true });
-// By default, Mongoose returns the original document before it was updated. However, setting new: true ensures that the updated document 
-// is returned instead
+        // By default, Mongoose returns the original document before it was updated. However, setting new: true ensures that the updated document 
+        // is returned instead
         if (!updatedShow) {
             return res.status(404).json({ message: "Show not found" });
         }
